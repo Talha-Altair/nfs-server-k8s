@@ -16,7 +16,7 @@ spec:
           command:
             - sh
             - -c
-            - "mkdir /mnt/tram-1 /mnt/tram-2 /mnt/tram-3 && sleep 100000000000"
+            - "mkdir -p /mnt/tram-1 /mnt/tram-2 /mnt/tram-3 && sleep 100000000000"
           imagePullPolicy: IfNotPresent
           name: busybox
           volumeMounts:
