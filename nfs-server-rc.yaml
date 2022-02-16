@@ -26,12 +26,7 @@ spec:
           volumeMounts:
             - mountPath: /exports
               name: mypvc
-            - mountPath: /etc/exports
-              name: nfs-server-config
       volumes:
         - name: mypvc
           persistentVolumeClaim:
             claimName: nfs-pv-provisioning-demo
-        - name: nfs-server-config
-          configMap:
-            name: nfs-server-cm

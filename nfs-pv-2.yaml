@@ -9,6 +9,6 @@ spec:
     - ReadWriteMany
   nfs:
     server: nfs-server.nfs.svc.cluster.local
-    path: "/data/data2"
+    path: "/exports/data2"
   mountOptions:
     - nfsvers=4.2
