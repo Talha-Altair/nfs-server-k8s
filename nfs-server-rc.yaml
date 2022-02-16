@@ -12,21 +12,26 @@ spec:
         role: nfs-server
     spec:
       containers:
-      - name: nfs-server
-        image: k8s.gcr.io/volume-nfs:0.8
-        ports:
-          - name: nfs
-            containerPort: 2049
-          - name: mountd
-            containerPort: 20048
-          - name: rpcbind
-            containerPort: 111
-        securityContext:
-          privileged: true
-        volumeMounts:
-          - mountPath: /exports
-            name: mypvc
+        - name: nfs-server
+          image: k8s.gcr.io/volume-nfs:0.8
+          ports:
+            - name: nfs
+              containerPort: 2049
+            - name: mountd
+              containerPort: 20048
+            - name: rpcbind
+              containerPort: 111
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - mountPath: /exports
+              name: mypvc
+            - mountPath: /etc/exports
+              name: nfs-server-config
       volumes:
         - name: mypvc
           persistentVolumeClaim:
             claimName: nfs-pv-provisioning-demo
+        - name: nfs-server-config
+          configMap:
+            name: nfs-server-cm

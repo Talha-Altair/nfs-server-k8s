@@ -16,7 +16,7 @@ spec:
           command:
             - sh
             - -c
-            - "while true; do sleep $(($RANDOM % 5 + 5)); done"
+            - "mkdir /mnt/tram-1 /mnt/tram-2 /mnt/tram-3 && sleep 100000000000"
           imagePullPolicy: IfNotPresent
           name: busybox
           volumeMounts:
