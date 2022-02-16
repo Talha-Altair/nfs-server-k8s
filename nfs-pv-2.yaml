@@ -4,11 +4,11 @@ metadata:
   name: nfs
 spec:
   capacity:
-    storage: 10Gi
+    storage: 5Gi
   accessModes:
     - ReadWriteMany
   nfs:
     server: nfs-server.nfs.svc.cluster.local
-    path: "/data1"
+    path: "/data2"
   mountOptions:
     - nfsvers=4.2
